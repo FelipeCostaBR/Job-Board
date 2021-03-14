@@ -7,12 +7,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import GlobalStyle from './styles/global';
 
 const App = () => (
-  <Router>
+  <>
+    <Router>
+      <JobProvider>
+        <Routes />
+      </JobProvider>
+    </Router>
     <GlobalStyle />
-    <JobProvider>
-      <Routes />
-    </JobProvider>
-  </Router>
+  </>
 );
 
 export default App;

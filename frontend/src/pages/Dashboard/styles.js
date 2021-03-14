@@ -1,13 +1,5 @@
 import styled from 'styled-components';
-// import { shade } from 'polished';
 
-
-export const Header = styled.header`
-    h1 {
-        font-size: 70px;
-        color: #3a3a3a;
-    }
-`;
 
 export const Container = styled.div`
   width: 100%;
