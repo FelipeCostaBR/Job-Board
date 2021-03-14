@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $row = 1;
-        $applicantsArray = array();
+        $applicants_array = array();
         $file = fopen(storage_path('app/jobs.csv'), "r");
 
         // check for all applicants in the file and push into array.
@@ -27,15 +27,15 @@ class DatabaseSeeder extends Seeder
             if ($row > 1) {
                 $applicant_list = $data[4];
                 foreach (explode(',', $applicant_list) as $name) {
-                    array_push($applicantsArray, trim($name));
+                    array_push($applicants_array, trim($name));
                 }
             }
             $row++;
         }
         // after check all the applicants in the file make it unique and insert into applicants table.
-        $uniqueApplicants = array_unique($applicantsArray);
+        $unique_applicants = array_unique($applicants_array);
 
-        foreach ($uniqueApplicants as $name) {
+        foreach ($unique_applicants as $name) {
             $applicant = new Applicant;
             $applicant->name = $name;
             $applicant->save();
@@ -56,8 +56,8 @@ class DatabaseSeeder extends Seeder
 
 
                 // Insert into jobs_applicants table the relation of one job and all applicants.
-                $applicantsList = explode(',', $data[4],);
-                foreach ($applicantsList as $name) {
+                $applicants_list = explode(',', $data[4],);
+                foreach ($applicants_list as $name) {
                     DB::insert(
                         'insert into jobs_applicants (id_job, id_applicant) values (?, ?)',
                         [$job->id, trim($name)]
@@ -72,18 +72,18 @@ class DatabaseSeeder extends Seeder
 
         // rewind($file);
         // $row = 1;
-        // $applicantsArray = array();
+        // $applicants_array = array();
         // while (($data = fgetcsv($file)) !== FALSE) {
         //     if ($row > 1) {
 
         //         foreach (explode(',', $data[4],) as $key => $value) {
-        //             array_push($applicantsArray, trim($value));
+        //             array_push($applicants_array, trim($value));
         //         }
-        //         // $applicantsArray = explode(',',$data[4],);
+        //         // $applicants_array = explode(',',$data[4],);
         //     }
         //     $row++;
         // }
-        // $uniqueApplicants = array_unique($applicantsArray);
+        // $unique_applicants = array_unique($applicants_array);
 
 
 
@@ -94,25 +94,25 @@ class DatabaseSeeder extends Seeder
         //      return $obj;
         // };
 
-        // $applicant = array_map($applicantObject, $uniqueApplicants);
+        // $applicant = array_map($applicantObject, $unique_applicants);
         // echo $applicant;
         // DB::table('applicants')->insertOrIgnore([
         //     $applicant
         // ]);
 
 
-        // $applicantList = implode(" ",  $uniqueApplicants);
-        // $sql = "insert into applicants (name) values (?) WHERE name NOT IN ( '" . implode( "', '" , $uniqueApplicants ) . "' )";
+        // $applicantList = implode(" ",  $unique_applicants);
+        // $sql = "insert into applicants (name) values (?) WHERE name NOT IN ( '" . implode( "', '" , $unique_applicants ) . "' )";
         // $sql = 'insert into applicants (name) values (?)';
 
-        // DB::insert($sql, [$uniqueApplicants]);
+        // DB::insert($sql, [$unique_applicants]);
         // DB::table('applicants')->insertOrIgnore([
         //     [ 'name' => 'Felipe'],
         //     [ 'name' => 'Costa'],
         // ]);
 
 
-        // foreach ($uniqueApplicants as $key => $applicant) {
+        // foreach ($unique_applicants as $key => $applicant) {
         //     $select = DB::select('select * from jobs where title = ?;', ['Superstar Barhand Staff']);
 
         //      echo implode(", ",$select);

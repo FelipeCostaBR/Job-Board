@@ -18,7 +18,7 @@ class CreateJobsApplicants extends Migration
             $table->char('id_applicant');
             $table->foreign('id_job')->references('id')->on('jobs');
             $table->foreign('id_applicant')->references('name')->on('applicants');
-            $table->timestamp('created_at');
+            // $table->timestamp('created_at');
         });
     }
 

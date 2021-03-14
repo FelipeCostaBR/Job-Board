@@ -13,4 +13,6 @@
 |
 */
 
-$router->get('job', 'JobController@show');
+$router->get('jobs', 'JobController@show');
+
+$router->get('jobs/{id}', 'JobController@job_details');

@@ -15,7 +15,7 @@ class CreateApplicants extends Migration
     {
         Schema::create('applicants', function (Blueprint $table) {
             $table->char('name')->primary()->unique();
-            $table->timestamp('created_at');
+            // $table->timestamp('created_at');
         });
     }
 
