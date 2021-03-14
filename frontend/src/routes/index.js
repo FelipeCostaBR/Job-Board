@@ -7,7 +7,7 @@ import React from 'react'
 
 const Routes = () => (
   <Switch>
-    <Route path="/" exact component={Dashboard} />
+    <Route path="/jobs" exact component={Dashboard} />
   </Switch>
 );
 

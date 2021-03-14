@@ -92,7 +92,7 @@ $app->configure('cors');
 */
 
 // $app->register(App\Providers\AppServiceProvider::class);
-$app->register(App\Providers\AuthServiceProvider::class);
+// $app->register(App\Providers\AuthServiceProvider::class); este
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*
@@ -110,7 +110,7 @@ $app->register(App\Providers\AuthServiceProvider::class);
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
-    require __DIR__.'/../routes/api.php';
+    require __DIR__.'/../routes/web.php';
 });
 
 return $app;

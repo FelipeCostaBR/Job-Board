@@ -4,26 +4,24 @@ import api from '../services/api';
 export const JobContext = createContext();
 
 export const JobProvider = ({ children }) => {
-  const [jobs, setJobs] = useState([]);
+    const [jobs, setJobs] = useState([]);
 
-  useEffect(() => {
-    async function showJob() {
-      const response = await api.get('/job');
-      setJobs(response.data);
-    };
+    useEffect(() => {
+        async function showJob() {
+            const response = await api.get('/job');
 
-    showJob();
-  }, []);
+            const jobListFormatted = response.data.map(job => ({
+                ...job,
+                date: job.date.replaceAll('/', '-'),
+            }));
 
+            setJobs(jobListFormatted);
+        }
 
-  return (
-    <JobContext.Provider
-      value={{ jobs }}
-    >
-      {children}
-    </JobContext.Provider>
-  );
+        showJob();
+    }, []);
 
-
+    return (
+        <JobContext.Provider value={{ jobs }}>{children}</JobContext.Provider>
+    );
 };
-
