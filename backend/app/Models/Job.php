@@ -14,22 +14,12 @@ class Job extends Model implements AuthenticatableContract, AuthorizableContract
     use Authenticatable, Authorizable, HasFactory;
 
     public $timestamps = false;
-
-    // $jobs = Job::where('active', 1)
-    //            ->orderBy('title')
-    //            ->take(10)
-    //            ->get();
-
-    //            foreach ($jobs as $job) {
-    //             echo $job->title;
-    //         }
-
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
     protected $fillable = [
         'title', 'description', 'date', 'location', 'applicants'
     ];
@@ -42,5 +32,4 @@ class Job extends Model implements AuthenticatableContract, AuthorizableContract
      *  'password',
      * ];
      */
-    
 }

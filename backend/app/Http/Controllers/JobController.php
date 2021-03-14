@@ -3,29 +3,37 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Job;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use Laravel\Lumen\Routing\Controller as BaseController;
+
+use App\Models\Job;
 
 class JobController extends BaseController
 {
-    public function create(Request $request)
+    public function create()
     {
-        $job = new Job;
-        $job->title = $request->title;
-        $job->description = $request->description;
-        $job->date = $request->date;
-        $job->location = $request->location;
-        $job->applicants = $request->applicants;
-        $job->save();
-
-        return response()->json($job);
+        $row = 1;
+        $file = fopen(storage_path('app/jobs.csv'), "r");
+        while (($data = fgetcsv($file)) !== FALSE) {
+            if ($row > 1) {
+                $job = new Job;
+                $job->title = $data[0];
+                $job->description = $data[1];
+                $job->date = $data[2];
+                $job->location = $data[3];
+                $job->applicants = $data[4];
+                $job->save();
+            }
+            $row++;
+        }
+        
+        return response()->json(["msg" => "File successfully updated"]);
     }
 
     public function show()
     {
         $jobs = Job::all();
-
         return response()->json($jobs);
-        
     }
 }

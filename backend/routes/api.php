@@ -3,6 +3,7 @@
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 use Illuminate\Http\Response;
+use App\Http\Controllers\FileUpload;
 use App\Http\Controllers\JobController;
 
 /*
@@ -16,17 +17,6 @@ use App\Http\Controllers\JobController;
 |
 */
 
-// $router->get('/', function () use ($router) {
-//     return response()->json(['name' => 'Abigail', 'state' => 'CA']);
+$router->get('job', 'JobController@show');
 
-// });
-
-// $router->get('job', function ()  {
-//     return view('job');
-// });
-
-// $router->get('job', 'JobController@show');
-
-// $router->post('job', 'JobController@create');
-
-// $router->get('/testapi', 'JobController@testapi');
+$router->post('job', 'JobController@create');
