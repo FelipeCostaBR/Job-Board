@@ -1,53 +1,38 @@
-import React, { useContext, useEffect } from 'react'
-import { useParams } from 'react-router';
-import { JobContext } from '../../context/JobContext';
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
+
+import formatApplicants from '../../utils/formatApplicants/index';
+import Loading from '../../components/loading/index';
+import Field from '../../components/field/index';
+
 import { Container } from './styles';
-// import ReactLoading from 'react-loading';
+import useApiClient from '../../utils/useApiClient/index';
 
 const Job = () => {
-  const { jobDetails, handleJobDetails, setJobDetails } = useContext(JobContext);
-  const [jobId] = Object.values(useParams());
-
-
-  useEffect(() => {
-    handleJobDetails(jobId);
-    // return ()=> {
-
-    //   setJobDetails(null)
-    // }
-  }, [jobId, handleJobDetails])
-
-
-  if(jobDetails == null){
-    return  <h1> Loading</h1>
-
-  }
-
-  // if(loading){
-  //     return <div style={{ display: 'flex', justifyContent: "center", alignItems:"center", height: "100%"  }}>
-  //       <ReactLoading type='spin' color='blue' height="200px" width='200px' />
-  //     </div>
-  //   }
+  const { id } = useParams();
+  const { data: job, loading } = useApiClient({ url: `/jobs/${id}` });
 
   return (
     <Container>
+      <Link to={'/jobs'}>Back to Jobs</Link>
       <h1>Job details</h1>
-      <strong>Title: </strong>
-      <span>{jobDetails.title}</span>
-
-      <strong>Description: </strong>
-      <span>{jobDetails.description}</span>
-
-      <strong>Location: </strong>
-      <span>{jobDetails.location}</span>
-
-      <strong>Date: </strong>
-      <span>{jobDetails.date}</span>
-
-      <strong>Applicants: </strong>
-      <span>{ jobDetails.name} </span>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div>
+          {job.map((data) => (
+            <div key={data.title}>
+              <Field title={'Title'} jobDetail={data.title} />
+              <Field title={'Description'} jobDetail={data.description} />
+              <Field title={'Location'} jobDetail={data.location} />
+              <Field title={'Date'} jobDetail={data.date} />
+              <Field title={'Applicants'} jobDetail={formatApplicants(data.applicants)} />
+            </div>
+          ))}
+        </div>
+      )}
     </Container>
-  )
-}
+  );
+};
 
 export default Job;

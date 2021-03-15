@@ -1,17 +1,14 @@
 import React from 'react';
 import Routes from './routes';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { JobProvider } from './context/JobContext';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import { JobProvider } from './context/jobContext';
 
 import GlobalStyle from './styles/global';
 
 const App = () => (
   <>
     <Router>
-      <JobProvider>
-        <Routes />
-      </JobProvider>
+      <Routes />
     </Router>
     <GlobalStyle />
   </>
