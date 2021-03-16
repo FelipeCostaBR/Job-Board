@@ -26,8 +26,8 @@
 * Install [Docker](https://docs.docker.com/get-started/)
 
 ### Clone the repository
-* $ git clone https://github.com/FelipeCostaBR/Job-Board.git
-* $ cd employee_onboarding
+* $ `git clone https://github.com/FelipeCostaBR/Job-Board.git`
+* $ `cd employee_onboarding`
    
 ### Build and Run:
 * $ `docker-compose build`
