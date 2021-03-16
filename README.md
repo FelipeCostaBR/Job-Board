@@ -42,9 +42,11 @@
 * Open a new terminal and go into the project folder
 
 ### Insert data into the database
+* **The CSV file needs to be into -** Job-Board/backend/storage/app
+
 * $ `docker-compose exec coding-challenge-backend php artisan migrate`
 * Do you really wish to run this command? (yes/no) [no]:
-* $ type: `yes` </br>
+* $ type: `yes` 
 * $ `docker-compose exec coding-challenge-backend php artisan db:seed`
 * Do you really wish to run this command? (yes/no) [no]:
 * $ type: `yes`
