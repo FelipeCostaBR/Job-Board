@@ -37,12 +37,24 @@
 ### Build and Run
 * $ `docker-compose build`
 * $ `docker-compose up`
+* the commands above can take a few minutes.
 
-* Open a new terminal
+* Open a new terminal and go into the project folder
 
 ### Insert data into the database
 * $ `docker-compose exec coding-challenge-backend php artisan migrate`
+* Do you really wish to run this command? (yes/no) [no]:
+* $ type: `yes` </br>
+* $ `docker-compose exec coding-challenge-backend php artisan db:seed`
+* Do you really wish to run this command? (yes/no) [no]:
+* $ type: `yes`
 
 ### Open the browser and access the localhost to use the application
-* React frontend: http://localhost
+* React frontend: http://localhost/jobs
+
+## Tests
+* $ `cd Job-Board/backend`
+* $ `./vendor/bin/phpunit`
+
+
 
