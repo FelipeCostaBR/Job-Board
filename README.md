@@ -13,7 +13,7 @@
 
 ![Job Board gif](assets/Jobs-board.gif "app")
 
-### Design of staff information
+### Data Relation Structure
 ![Data Relation Structure](assets/jobs-board-ER-diagram.png "data relation structure")
 
 ### Technologies and Dependencies: 
