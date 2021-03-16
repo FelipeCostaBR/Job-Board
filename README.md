@@ -37,12 +37,12 @@
 ### Build and Run
 * $ `docker-compose build`
 * $ `docker-compose up`
-* the commands above can take a few minutes.
+* The commands above can take a few minutes.
 
 * Open a new terminal and go into the project folder
 
 ### Insert data into the database
-* **The CSV file needs to be into -** Job-Board/backend/storage/app
+* **The CSV file needs to be moved into this file path ~>** Job-Board/backend/storage/app
 
 * $ `docker-compose exec coding-challenge-backend php artisan migrate`
 * Do you really wish to run this command? (yes/no) [no]:
