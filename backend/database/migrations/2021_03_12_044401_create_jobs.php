@@ -19,7 +19,6 @@ class CreateJobs extends Migration
             $table->string('description');
             $table->string('date');
             $table->string('location');
-            // $table->timestamp('created_at');
         });
     }
 
