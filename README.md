@@ -38,6 +38,6 @@
 ### Insert data into the database
 * $ `docker-compose exec coding-challenge-backend php artisan migrate`
 
-## Open a the browser and access the localhost to use the application
+### Open the browser and access the localhost to use the application
 * React frontend: http://localhost
 
