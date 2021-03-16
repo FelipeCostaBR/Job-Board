@@ -8,7 +8,13 @@
 
 * Users should be able to click on a job to view more details about it.
 
-## :camera_flash: Job Board - usage instructions.
+## :books: Reference documentation
+
+* Lumen: https://lumen.laravel.com/docs/8.x/testing#testing-json-apis
+* Laravel: https://laravel.com/docs/8.x/testing
+
+
+## :camera_flash: Job Board - usage instructions
 
 
 ![Job Board gif](assets/Jobs-board.gif "app")
@@ -16,10 +22,9 @@
 ### Data Relation Structure
 ![Data Relation Structure](assets/jobs-board-ER-diagram.png "data relation structure")
 
-### Technologies and Dependencies: 
+### Technologies and Dependencies
 * PHP Lumen
 * ReactJs - Dependencies (axios, prettier, react-loading, react-router-dom, styled-components)
-
 
 
 ## Setup
@@ -29,7 +34,7 @@
 * $ `git clone https://github.com/FelipeCostaBR/Job-Board.git`
 * $ `cd employee_onboarding`
    
-### Build and Run:
+### Build and Run
 * $ `docker-compose build`
 * $ `docker-compose up`
 
