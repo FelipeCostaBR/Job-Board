@@ -32,7 +32,7 @@
 
 ### Clone the repository
 * $ `git clone https://github.com/FelipeCostaBR/Job-Board.git`
-* $ `cd employee_onboarding`
+* $ `cd Job-Board`
    
 ### Build and Run
 * $ `docker-compose build`
